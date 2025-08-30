@@ -1,10 +1,312 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Class Blogs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+            color: #ecf0f1;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 10px;
+        }
+
+        .class-section {
+            margin-bottom: 25px;
+        }
+
+        .class-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .blog-link {
+            display: block;
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 8px 0;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            background-color: #34495e;
+            border-left-color: #3498db;
+            padding-left: 15px;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        .blog-post {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .blog-post.active {
+            display: block;
+        }
+
+        .blog-post h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .blog-post .meta {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .blog-post p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .welcome {
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-250px);
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1000;
+                background: #3498db;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>My Simple Website</h1>
-    <p>No React, just HTML!</p>
+    <div class="container">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
+        
+        <aside class="sidebar" id="sidebar">
+            <h2>My Class Blogs</h2>
+            
+            <div class="class-section">
+                <div class="class-title">Computer Science</div>
+                <a href="#" class="blog-link" onclick="showBlog('cs-algorithms')">Algorithm Analysis</a>
+                <a href="#" class="blog-link" onclick="showBlog('cs-databases')">Database Design</a>
+                <a href="#" class="blog-link" onclick="showBlog('cs-networks')">Network Security</a>
+            </div>
+
+            <div class="class-section">
+                <div class="class-title">Mathematics</div>
+                <a href="#" class="blog-link" onclick="showBlog('math-calculus')">Calculus Concepts</a>
+                <a href="#" class="blog-link" onclick="showBlog('math-statistics')">Statistics Project</a>
+                <a href="#" class="blog-link" onclick="showBlog('math-linear')">Linear Algebra</a>
+            </div>
+
+            <div class="class-section">
+                <div class="class-title">Physics</div>
+                <a href="#" class="blog-link" onclick="showBlog('physics-mechanics')">Classical Mechanics</a>
+                <a href="#" class="blog-link" onclick="showBlog('physics-quantum')">Quantum Physics</a>
+            </div>
+
+            <div class="class-section">
+                <div class="class-title">English Literature</div>
+                <a href="#" class="blog-link" onclick="showBlog('lit-shakespeare')">Shakespeare Analysis</a>
+                <a href="#" class="blog-link" onclick="showBlog('lit-modern')">Modern Poetry</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="welcome">
+                <h1>Welcome to My Class Blog</h1>
+                <p>Select a blog post from the sidebar to read my thoughts and notes from different classes.</p>
+            </div>
+
+            <!-- Computer Science Blogs -->
+            <article class="blog-post" id="cs-algorithms">
+                <h1>Algorithm Analysis Deep Dive</h1>
+                <div class="meta">Computer Science • March 15, 2025</div>
+                <p>Today we covered Big O notation and its practical applications. The concept of time complexity really clicked when we analyzed different sorting algorithms.</p>
+                <p>Key takeaways from today's lecture:</p>
+                <p>• Bubble sort: O(n²) - simple but inefficient for large datasets</p>
+                <p>• Merge sort: O(n log n) - much better performance</p>
+                <p>• Quick sort: O(n log n) average case, but O(n²) worst case</p>
+                <p>The professor's example using race cars really helped visualize how different algorithms scale with input size.</p>
+            </article>
+
+            <article class="blog-post" id="cs-databases">
+                <h1>Database Design Principles</h1>
+                <div class="meta">Computer Science • March 10, 2025</div>
+                <p>We're learning about normalization and why it's crucial for database efficiency. The concept of eliminating redundancy while maintaining data integrity is fascinating.</p>
+                <p>First Normal Form (1NF) requires atomic values - no repeating groups. This seems obvious now, but I can see how easy it would be to make mistakes in real projects.</p>
+                <p>Next week we'll cover Second and Third Normal Forms. Looking forward to the practical exercises!</p>
+            </article>
+
+            <article class="blog-post" id="cs-networks">
+                <h1>Network Security Fundamentals</h1>
+                <div class="meta">Computer Science • March 8, 2025</div>
+                <p>Today's topic was encryption and how SSL/TLS works. It's amazing how much security infrastructure we take for granted when browsing the web.</p>
+                <p>The handshake process between client and server involves so many steps, but it all happens in milliseconds. Public key cryptography is brilliant.</p>
+            </article>
+
+            <!-- Math Blogs -->
+            <article class="blog-post" id="math-calculus">
+                <h1>Understanding Limits and Continuity</h1>
+                <div class="meta">Mathematics • March 12, 2025</div>
+                <p>Calculus is starting to make more sense! The concept of limits as the foundation for derivatives and integrals is becoming clearer.</p>
+                <p>The epsilon-delta definition seemed impossible at first, but the geometric interpretation really helped. Visual learning for the win!</p>
+                <p>Practice problems this week: finding limits of rational functions and understanding removable discontinuities.</p>
+            </article>
+
+            <article class="blog-post" id="math-statistics">
+                <h1>Statistics Project: Survey Analysis</h1>
+                <div class="meta">Mathematics • March 5, 2025</div>
+                <p>Working on a statistics project analyzing student study habits. We surveyed 200 students about their study methods and sleep patterns.</p>
+                <p>Preliminary findings show a strong correlation between consistent sleep schedules and academic performance. Not surprising, but good to see the data support it.</p>
+                <p>Next step: hypothesis testing to determine statistical significance.</p>
+            </article>
+
+            <article class="blog-post" id="math-linear">
+                <h1>Linear Algebra Applications</h1>
+                <div class="meta">Mathematics • February 28, 2025</div>
+                <p>Linear algebra is everywhere! Today we learned how it's used in computer graphics, machine learning, and even Google's PageRank algorithm.</p>
+                <p>Matrix transformations for 3D graphics blew my mind. Rotation, scaling, and translation can all be represented as matrix operations.</p>
+            </article>
+
+            <!-- Physics Blogs -->
+            <article class="blog-post" id="physics-mechanics">
+                <h1>Classical Mechanics: Newton's Laws in Action</h1>
+                <div class="meta">Physics • March 14, 2025</div>
+                <p>Lab day! We tested Newton's second law using different masses and forces. The relationship F=ma became crystal clear through hands-on experimentation.</p>
+                <p>Most interesting observation: how friction affects our calculations. The theoretical models work perfectly, but real-world factors add complexity.</p>
+                <p>This connects nicely to what we're learning in calculus about rates of change and acceleration.</p>
+            </article>
+
+            <article class="blog-post" id="physics-quantum">
+                <h1>Introduction to Quantum Physics</h1>
+                <div class="meta">Physics • March 1, 2025</div>
+                <p>Quantum mechanics is mind-bending! The double-slit experiment challenges everything we think we know about particles and waves.</p>
+                <p>Key concepts covered: wave-particle duality, uncertainty principle, and quantum superposition. My brain hurts, but in a good way.</p>
+                <p>The math is getting complex, but the conceptual implications are fascinating.</p>
+            </article>
+
+            <!-- Literature Blogs -->
+            <article class="blog-post" id="lit-shakespeare">
+                <h1>Hamlet: Madness vs. Method</h1>
+                <div class="meta">English Literature • March 11, 2025</div>
+                <p>Analyzing Hamlet's famous "madness" and whether it's genuine or performed. The textual evidence suggests a complex mix of both.</p>
+                <p>His conversations with Horatio show clarity and purpose, while his interactions with Polonius seem genuinely unhinged. Shakespeare's psychological insight is remarkable.</p>
+                <p>Essay topic for next week: "Is Hamlet's madness a strategic choice or genuine mental breakdown?"</p>
+            </article>
+
+            <article class="blog-post" id="lit-modern">
+                <h1>Modern Poetry: Breaking Traditional Forms</h1>
+                <div class="meta">English Literature • March 6, 2025</div>
+                <p>Studying how poets like e.e. cummings and William Carlos Williams revolutionized poetry structure. The freedom to break grammatical and structural rules opens up so many possibilities.</p>
+                <p>"so much depends upon a red wheel barrow" - Williams proves that poetry can find beauty in the mundane. Simple words, profound impact.</p>
+                <p>Working on my own experimental poem for the creative assignment.</p>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        function showBlog(blogId) {
+            // Hide all blog posts
+            const posts = document.querySelectorAll('.blog-post');
+            posts.forEach(post => post.classList.remove('active'));
+            
+            // Hide welcome message
+            const welcome = document.querySelector('.welcome');
+            if (welcome) welcome.style.display = 'none';
+            
+            // Show selected blog post
+            const selectedPost = document.getElementById(blogId);
+            if (selectedPost) {
+                selectedPost.classList.add('active');
+            }
+            
+            // Close sidebar on mobile
+            if (window.innerWidth <= 768) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html>
