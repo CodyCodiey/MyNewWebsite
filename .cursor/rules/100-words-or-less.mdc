@@ -1,0 +1,5 @@
+---
+description:keep the reply to 100 words or less to make it readable
+globs:
+alwaysApply: true
+---
