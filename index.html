@@ -4,181 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cody Frost @ITP</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        .sidebar h2 {
-            margin-bottom: 20px;
-            color: #ecf0f1;
-            border-bottom: 2px solid #34495e;
-            padding-bottom: 10px;
-        }
-
-        .class-section {
-            margin-bottom: 25px;
-        }
-
-        .class-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #3498db;
-        }
-
-        .blog-link {
-            display: block;
-            color: #ecf0f1;
-            text-decoration: none;
-            padding: 8px 0;
-            border-left: 3px solid transparent;
-            padding-left: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .blog-link:hover {
-            background-color: #34495e;
-            border-left-color: #3498db;
-            padding-left: 15px;
-        }
-
-        .main-content {
-            flex: 1;
-            margin-left: 0;  /* Remove sidebar margin */
-            padding: 30px;
-        }
-
-        .blog-post {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: none;
-        }
-
-        .blog-post.active {
-            display: block;
-        }
-
-        .blog-post h1 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-
-        .blog-post .meta {
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .blog-post p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: #34495e;
-        }
-
-        .welcome {
-            text-align: center;
-            color: #7f8c8d;
-            margin-top: 100px;
-        }
-
-        .topics-list {
-            max-width: 400px;
-            margin: 40px auto 0;
-        }
-
-        .topics-list a {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .topics-list a:hover {
-            background: #2980b9;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-        .topics-list {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .topics-list a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .home-btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 15px;
-        }
-
-        .home-btn:hover {
-            background: #2980b9;
-        }
-        .artworks-button {
-            display: block;
-            width: 400px;
-            margin: 10px auto;  /* auto left/right margins center the button */
-            padding: 15px;
-            background: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-align: center;
-            transition: background 0.3s ease;
-        }
-
-        .artworks-button:hover {
-            background: #c0392b;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <script src="main.js"></script>
 </head>
 <body>
     <div class="container">       
@@ -186,162 +13,91 @@
         <main class="main-content">
             <div class="welcome">
                 <h1>Cody Frost @ITP</h1>
-                <p>View Documentation for my Course Work <p>
+                <p>View Documentation for my Course Work</p>
                 
                 <div class="topics-list">
-                    <a href="#Applications" onclick="showBlog('Applications')">Applications</a>
-                    <a href="#Dynamic Web Development" onclick="showBlog('Dynamic Web Development')">Dynamic Web Development</a>
-                    <a href="#Prototyping Electronic Devices" onclick="showBlog('Prototyping Electronic Devices')">Prototyping Electronic Devices</a>
-                    <a href="#Socially and Politically Engaged Art Practice" onclick="showBlog('Socially and Politically Engaged Art Practice')">Socially and Politically Engaged Art Practice</a>
-                    <a href="#Intro to Comp: Media" onclick="showBlog('Intro to Comp: Media')">Intro to Comp: Media</a>
-                    <a href="#Bioprinting for Artists and Designers" onclick="showBlog('Bioprinting for Artists and Designers')">Bioprinting for Artists and Designers</a>
+                    <a href="#Applications" onclick="showBlog('Applications')" style="display:block; margin-bottom:8px;">Applications</a>
+                    <a href="#Dynamic Web Development" onclick="showBlog('Dynamic Web Development')" style="display:block; margin-bottom:8px;">Dynamic Web Development</a>
+                    <a href="#Prototyping Electronic Devices" onclick="showBlog('Prototyping Electronic Devices')" style="display:block; margin-bottom:8px;">Prototyping Electronic Devices</a>
+                    <a href="#Socially and Politically Engaged Art Practice" onclick="showBlog('Socially and Politically Engaged Art Practice')" style="display:block; margin-bottom:8px;">Socially and Politically Engaged Art Practice</a>
+                    <a href="#Intro to Comp: Media" onclick="showBlog('Intro to Comp: Media')" style="display:block; margin-bottom:8px;">Intro to Comp: Media</a>
+                    <a href="#Bioprinting for Artists and Designers" onclick="showBlog('Bioprinting for Artists and Designers')" style="display:block; margin-bottom:8px;">Bioprinting for Artists and Designers</a>
                 </div>
 
                 <br>
 
                 <h2>Artworks</h2>
-
-                <button class="artworks-button" onclick="window.open('https://youtu.be/NYDVq5Rc9n8', '_blank')">Kinetic Randomness Generator</button>
-
-                <button class="artworks-button" onclick="window.open('https://youtu.be/_1berzxu7CA', '_blank')">Wind Form Visualizer</button>
+                <div class="artworks-list">
+                    <a href="https://youtu.be/NYDVq5Rc9n8" target="_blank" style="display:block; margin-bottom:8px;">Kinetic Randomness Generator</a>
+                    <a href="https://youtu.be/_1berzxu7CA" target="_blank" style="display:block; margin-bottom:8px;">Wind Form Visualizer</a>
+                </div>
+                
+                <br>
+                
+                <!-- areas I plan to add in the future
+                <h2>WorkWorks</h2>
+                <p>things I made for money</p>
+                
+                <h2>CV</h2>
+                <p>everything else</p>
+                -->
             </div>
 
             <!-- Computer Science Blogs -->
             <article class="blog-post applications" id="Applications-Day1">
-                <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 1: Introduction</h1>
+                <h1>Applications-Day1</h1>
                 <div class="meta">Aug 31, 2025</div>
-                <p>Content for day 1...</p>
-            </article>
-
-            <article class="blog-post applications" id="Applications-Day2">
+                <p>Im sure ill have all kinds of interesting things to say.....</p>
                 <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 2: Advanced Topics</h1>
-                <div class="meta">Sep 1, 2025</div>
-                <p>Content for day 2...</p>
+                <br>
             </article>
 
             <!-- Dynamic Web Development Blogs -->
             <article class="blog-post dynamic-web-development" id="Dynamic Web Development-Day1">
-                <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 1: Introduction</h1>
+                <!-- <h1>Day 1: Introduction</h1>
                 <div class="meta">Aug 31, 2025</div>
                 <p>Content for day 1...</p>
-            </article>
-
-            <article class="blog-post dynamic-web-development" id="Dynamic Web Development-Day2">
                 <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 2: Advanced Topics</h1>
-                <div class="meta">Sep 1, 2025</div>
-                <p>Content for day 2...</p>
-            </article>
+
+            </article> -->
 
             <!-- Prototyping Electronic Devices Blogs -->
             <article class="blog-post prototyping-electronic-devices" id="Prototyping Electronic Devices-Day1">
-                <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 1: Introduction</h1>
+                <!-- <h1>Day 1: Introduction</h1>
                 <div class="meta">Aug 31, 2025</div>
                 <p>Content for day 1...</p>
-            </article>
-
-            <article class="blog-post prototyping-electronic-devices" id="Prototyping Electronic Devices-Day2">
                 <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 2: Advanced Topics</h1>
-                <div class="meta">Sep 1, 2025</div>
-                <p>Content for day 2...</p>
-            </article>
+
+            </article> -->
 
             <!-- Socially and Politically Engaged Art Practice Blogs -->
-            <article class="blog-post socially-and-politically-engaged-art-practice" id="Socially and Politically Engaged Art Practice-Day1">
-                <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
+            <!-- <article class="blog-post socially-and-politically-engaged-art-practice" id="Socially and Politically Engaged Art Practice-Day1">
                 <h1>Day 1: Introduction</h1>
                 <div class="meta">Aug 31, 2025</div>
                 <p>Content for day 1...</p>
-            </article>
-
-            <article class="blog-post socially-and-politically-engaged-art-practice" id="Socially and Politically Engaged Art Practice-Day2">
                 <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 2: Advanced Topics</h1>
-                <div class="meta">Sep 1, 2025</div>
-                <p>Content for day 2...</p>
-            </article>
+
+            </article> -->
 
             <!-- Intro to Comp: Media Blogs -->
-            <article class="blog-post intro-to-comp-media" id="Intro to Comp: Media-Day1">
-                <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
+            <!-- <article class="blog-post intro-to-comp-media" id="Intro to Comp: Media-Day1">
                 <h1>Day 1: Introduction</h1>
                 <div class="meta">Aug 31, 2025</div>
                 <p>Content for day 1...</p>
-            </article>
-
-            <article class="blog-post intro-to-comp-media" id="Intro to Comp: Media-Day2">
                 <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 2: Advanced Topics</h1>
-                <div class="meta">Sep 1, 2025</div>
-                <p>Content for day 2...</p>
-            </article>
+
+            </article> -->
 
             <!-- Bioprinting for Artists and Designers Blogs -->
-            <article class="blog-post bioprinting-for-artists-and-designers" id="Bioprinting for Artists and Designers-Day1">
-                <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
+            <!-- <article class="blog-post bioprinting-for-artists-and-designers" id="Bioprinting for Artists and Designers-Day1">
                 <h1>Day 1: Introduction</h1>
                 <div class="meta">Aug 31, 2025</div>
                 <p>Content for day 1...</p>
-            </article>
-
-            <article class="blog-post bioprinting-for-artists-and-designers" id="Bioprinting for Artists and Designers-Day2">
                 <button class="home-btn" onclick="showHome(); window.location.hash = '';">Home</button>
-                <h1>Day 2: Advanced Topics</h1>
-                <div class="meta">Sep 1, 2025</div>
-                <p>Content for day 2...</p>
-            </article>
+
+            </article> -->
 
         </main>
     </div>
-
-    <script>
-        function showBlog(courseName) {
-            // Hide all blog posts
-            const posts = document.querySelectorAll('.blog-post');
-            posts.forEach(post => post.classList.remove('active'));
-            
-            // Hide welcome message
-            const welcome = document.querySelector('.welcome');
-            if (welcome) welcome.style.display = 'none';
-            
-            // Show all posts for this course
-            const courseClass = courseName.toLowerCase().replace(/ /g, '-').replace(/:/g, '');
-            const coursePosts = document.querySelectorAll(`.blog-post.${courseClass}`);
-            coursePosts.forEach(post => post.classList.add('active'));
-        }
-
-        function showHome() {
-            // Hide all blog posts
-            const posts = document.querySelectorAll('.blog-post');
-            posts.forEach(post => post.classList.remove('active'));
-            
-            // Show welcome message
-            const welcome = document.querySelector('.welcome');
-            if (welcome) welcome.style.display = 'block';
-            
-        }
-
-    </script>
-    <script>
-        window.addEventListener('hashchange', function() {
-            const hash = decodeURIComponent(window.location.hash.substring(1));
-            if (hash) {
-                showBlog(hash);
-            } else {
-                showHome();
-            }
-        });
-
-        // Handle initial load
-        if (window.location.hash) {
-            const hash = decodeURIComponent(window.location.hash.substring(1));
-            showBlog(hash);
-        }
-    </script>
 </body>
 </html>
