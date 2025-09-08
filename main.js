@@ -38,3 +38,11 @@ function showHome() {
     if (welcome) welcome.style.display = 'block';
     
 }
+
+// Added new blog posts
+<article class="blog-post applications" id="Applications">
+  ...
+</article>
+<article class="blog-post fabricating-mechanical-automatons" id="Fabricating Mechanical Automatons-Day1">
+  ...
+</article>
