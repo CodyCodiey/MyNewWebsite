@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>FMA Blog 5: Midterm Project Proposals</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body lang="en-US">
+    <main>
+        <h1>Mythic Automatons: Project Proposals</h1>
+        
+        <h2>Children of Ash and Elm, Kinetic Tree / Human Form Puppet Mechanism</h2>
+        
+        <p>This project would involve the fabrication of two puppets, depicting the creation of the first humans from stumps of wood. Their transformation would be activated by a pull string where arms and legs would fold out into human shape and relax back into the shape of a stump. The piece is interactive.</p>
+        
+        <img src="media/FMA5_MidtermProposal__2d70a4cb.jpg" alt="Children of Ash and Elm concept sketch" />
+        
+        <h2>The Punishment of Prometheus</h2>
+        
+        <p>After stealing fire from the gods Prometheus is tortured forevermore by birds which continually pluck and pull at his insides. The sculpture would have birds driven by cams which spring back revealing bright red yarn. This piece is driven by a crank which is great interaction, it can also be driven by a weak motor for more permanent display. The primary lift here is in the cams and in the creation of a human form.</p>
+        
+        <img src="media/FMA5_MidtermProposal__4a9b9840.jpg" alt="The Punishment of Prometheus concept sketch" />
+        
+        <h2>Sisyphus and the Boulder</h2>
+        
+        <p>This myth is great because its so recognizable. Sisyphus pushes the boulder up the hill, again, forevermore. In this piece the viewer takes the place of Sisyphus to turn a crank and power his eternal journey. This piece presents the opportunity to simplify the human form slightly and employ some mechanism to animate the legs. I think its a very inviting piece but perhaps lacking in the fidelity of the animation as the ground would not be moving.</p>
+        
+        <img src="media/FMA5_MidtermProposal__5e6221f4.jpg" alt="Sisyphus and the Boulder concept sketch" />
+    </main>
+</body>
+</html>
