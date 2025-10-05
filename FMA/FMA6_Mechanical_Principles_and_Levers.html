@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMA Lecture 1 - Mechanical Principles and Levers</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main>
+        <h1>Fabricating Mechanical Automatons</h1>
+        <h2>Lecture 1: Mechanical Principles and Levers</h2>
+
+        <h3>Machines vs Mechanisms:</h3>
+        <p>A machine modifies force, it uses energy to do <strong>work</strong>. It translates energy from one form to another.</p>
+
+        <p>A mechanism is a way to transmit energy in the form of motion.</p>
+
+        <p>Work is force times distance.<br>
+        W = F × d</p>
+
+        <p>Force is mass times acceleration<br>
+        F = ma</p>
+
+        <p>The unit of measure of work is one newton × one meter. In the units below Joule is capitalized because it's a name, and so is Newton.<br>
+        J = N × m</p>
+
+        <p>If we have a 1000lb stone, and we lift it 3 feet we just did 3000 foot×pounds of work, that's the English system version. As we lift it, the stone presses against us with 1000 lbf of force because it weighs 1000lbs in the gravity of earth. This can get tricky but it's best to ignore it.</p>
+
+        <img src="media/inclined_plane_diagram.png" alt="Diagram showing stone being lifted vs rolled up inclined plane" style="max-width: 100%; height: auto;">
+        <p><em>*Photo from Professor Corn's Slides</em></p>
+
+        <p>What if we take this stone and roll it up an inclined ramp? Now instead of a distance of 3 we have a distance of, say 8. The amount of force required to move the stone up will go down. We can set the equation up like this:</p>
+
+        <p>F is force, W is weight, or 1000lbs, and theta is the angle we are resisting gravity at.</p>
+
+        <p>F = W × sin(θ)</p>
+
+        <p>Given that sin(θ) = height(H)/length(L)</p>
+
+        <p>We are looking at a<br>
+        sin(θ) = 3ft/8ft = 0.375</p>
+
+        <p>So,<br>
+        F = 1000lbs × 0.375 = 375lbs</p>
+
+        <p>That's a lot less, and much closer to what I can imagine moving. This is the power of the inclined plane, our first source of Mechanical Advantage.</p>
+
+        <h3>Mechanical Advantage</h3>
+        <p>Mechanical Advantage of a mechanism is the ratio of the load divided by the force exerted by the operator. – Professor Corn</p>
+
+        <p>MA = Load / Effort</p>
+
+        <p>If we look at the inclined plane again, we have a load of 1000lbf and an effort of 375 lbf, so our mechanical advantage is 2.7</p>
+
+        <p>MA = 1000/375 = 2.7</p>
+
+        <p>If we imagine spinning our inclined ramp around a spiral again and again and again we just invented the screw.</p>
+
+        <h3>Screw Type Jack</h3>
+        <p>Let's use these principles to examine the Screw Type Jack, a device which amplifies human forces to lift inhuman weights.</p>
+
+        <img src="media/screw_jack_diagram.png" alt="Diagram of screw type jack showing force application and components" style="max-width: 100%; height: auto;">
+
+        <p>Look close to the diagram, can you see where Force is? If we break that down now, considering the inclined plane from earlier, we can derive the following equation.</p>
+
+        <p>Force = Weight × height / (distance traveled at the end of the rod) or s</p>
+
+        <p>s = 2 × π × l<br>
+        So,<br>
+        s = 2 × 3.14 × 5<br>
+        s = 31.4</p>
+
+        <p>s is really confusing, but we need to remember that a ramp is made from a height and a length, we have abstracted the length out to be the handle of the screw jack and the height to be one rotation of the screw's pitch.</p>
+
+        <p>As we combine what we learned,<br>
+        F = w × h/s<br>
+        F = 100 × 0.008/31.4<br>
+        F = 25lb</p>
+
+        <p>Now let's look at the Mechanical Advantage we got:</p>
+
+        <p>MA = load / effort<br>
+        or<br>
+        MA = the distance of the input / the distance of the output</p>
+
+        <p>MA = 2 × π × l/h<br>
+        MA = 31.4/0.08<br>
+        MA = 393</p>
+
+        <p>That's really good!!!! Let's continue and apply these principles to levers.</p>
+
+        <h3>Levers</h3>
+        <p>When you imagine a lever you're probably thinking about a teeter totter or a crowbar. In truth, a lever is anything which pivots around a fulcrum.</p>
+
+        <img src="media/lever_basic_diagram.png" alt="Basic lever diagram showing fulcrum, load, and effort positions" style="max-width: 100%; height: auto;">
+
+        <p>We are dealing with two familiar forces with levers, the force of the load and the force of the effort. Most of the time, but not always, the load is on one side and the effort is on the other. Let's call them F<sub>l</sub> and F<sub>e</sub></p>
+
+        <p>The other thing we need to figure for levers is the distance from the fulcrum. This is essential for calculating the mechanical advantage we can get out of the lever. Because energy is conserved, the lever will do the same amount of work on each side. So,</p>
+
+        <p>W = W</p>
+
+        <p>W = force × distance or F × d</p>
+
+        <p>So,<br>
+        force × distance = force × distance</p>
+
+        <p>and when we correlate the distances to each side as above we can notate them as</p>
+
+        <p>d<sub>l</sub> and d<sub>e</sub></p>
+
+        <p>So we get the law of equilibrium, a way to conceptualize the balance of a lever.</p>
+
+        <p>F<sub>l</sub> × d<sub>l</sub> = F<sub>e</sub> × d<sub>e</sub></p>
+
+        <img src="media/lever_equilibrium_diagram.png" alt="Lever equilibrium diagram showing force and distance relationships" style="max-width: 100%; height: auto;">
+
+        <p>We will need this equation if we want to find the missing figure, for example how much effort force we should use to lift the load force at a certain distance. Crucially, we are measuring the distances from the fulcrum.</p>
+
+        <p>When we bring it back to Mechanical Advantage, we can simply consider:</p>
+
+        <p>MA = load / effort</p>
+
+        <p>or</p>
+
+        <p>MA = F<sub>l</sub>/F<sub>e</sub></p>
+
+        <p>What if we spin our lever around the fulcrum. This is essentially what a gear is. A gear can help us translate different distances, the radians in a particular diameter, between two moving objects, to change the mechanical advantage and allow us to use a small effort to move a large load.</p>
+
+        <img src="media/gear_lever_diagram.png" alt="Diagram showing gear as rotating lever with input and output forces" style="max-width: 100%; height: auto;">
+
+        <p>Let's keep considering this like a lever though.</p>
+
+        <p>If we consider Theta to be defined as it was before, as a rise and as a run, or here as a distance linearly and as a number of radians, we view it as,</p>
+
+        <p>θ = d<sub>0</sub>/l<sub>o</sub></p>
+
+        <p>and,</p>
+
+        <p>θ = d<sub>i</sub>/l<sub>i</sub></p>
+
+        <p>So,</p>
+
+        <p>d<sub>0</sub>/l<sub>o</sub> = d<sub>i</sub>/l<sub>i</sub></p>
+
+        <p>Again,</p>
+
+        <p>MA = load / effort</p>
+
+        <p>MA = l<sub>i</sub>/l<sub>o</sub></p>
+
+        <p>It should be clear, mechanical advantage is leverage.</p>
+
+        <h3>Types of Levers:</h3>
+
+        <p>When we look for levers in the world, we find three types:</p>
+
+        <p><strong>Class 1</strong>, the classic teeter totter</p>
+        <img src="media/class_1_lever.png" alt="Class 1 lever diagram showing fulcrum in the middle" style="max-width: 100%; height: auto;">
+
+        <p><strong>Class 2</strong>, the wheel barrow</p>
+        <img src="media/class_2_lever.png" alt="Class 2 lever diagram showing load in the middle" style="max-width: 100%; height: auto;">
+
+        <p>and <strong>Class 3</strong>, "the effort in the middle" aka "the stapler" aka "the fishing rod" aka "mr mysterious"</p>
+        <img src="media/class_3_lever.png" alt="Class 3 lever diagram showing effort in the middle" style="max-width: 100%; height: auto;">
+
+        <p>All three of these abide by the same equations discussed above, and can be calculated as such. May the mechanical always be to your advantage and thank you to Josh Corn for the Lecture.</p>
+    </main>
+</body>
+</html>
