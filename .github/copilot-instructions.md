@@ -78,4 +78,5 @@ The site follows a course-based content organization:
 - **Preserve existing content structure** - don't reorganize without explicit request
 - **Media files are locally hosted** - ensure proper relative path references
 - **Backend is configured but unused** - focus on static site improvements unless backend integration specifically requested
-- **Course-specific context matters** - understand ITP's interdisciplinary nature when suggesting content improvements
+- Never change speeling or grammar unless explicitly asked
+- Never change formatting or organization unless explicitly asked
