@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pixels!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+</head>
+
+<body lang="en-US">
+    <main>
+
+        <h1>Pixels!</h1>
+
+        <p> Basically we leaned the basics of keeping all the data for an image on the screen with a 1d array called
+            pixels. Calling pixels is really weird because there are so many pixel arrays that can be present. You
+            can have one for an image, for the canvas, for videos, pixels keeps a lot of numbers in long line and
+            you can break it down and do all sorts of stuff with it. </p>
+
+        <p> What kind of stuff? Whatever you can figure out basically. Its hard to understand a (I am going to use
+            the word image indescrimitibly the same way you would class a painting as "the image" or as painters as
+            working with images.) Image as a 1d array. But we can break am image down atomically into a cartesian
+            grid with 0,0 in the top corner and then it gets read straight across to the right until the page ends
+            at whatever the distance of the rectangle is and we pick right back up on the at the left side of the
+            page and repeat just like with english and it then goes on and on until the picture is known.</p>
+
+        <p> Each pixel is made up of 4 values. Red, Green, Blue, and Alpha. Each value can be between 0 and 255. So
+            a pure red pixel would be (255,0,0,255) and a pure green pixel would be (0,255,0,255) and a pure blue
+            pixel would be (0,0,255,255). The alpha value is the transparency of the pixel so 255 is fully opaque
+            and 0 is fully transparent. So if you wanted a semi transparent red you could do (255,0,0,127) (vscode
+            autocompleted this whole paragraph)</p>
+
+        <p> So to manipulate pixels you have to first load the pixels into the array with loadPixels() and then you
+            can manipulate the pixels array directly. Each pixel takes up 4 spaces in the array so the first pixel
+            is at index 0,1,2,3 and the second pixel is at index 4,5,6,7 and so on. So to get the red value of the
+            first pixel you would do pixels[0] and to get the green value of the first pixel you would do pixels[1]
+            and so on. Once you are done manipulating the pixels you have to call updatePixels() to update the
+            canvas with the new pixel values.(vs code autocompleted that too lol)</p>
+
+        <p> Okay, anyways. There are some ways to get through it using nested fore loops and a couple equations to
+            isolate the index from x and y values. Or what else is really cool because then you can just count by
+            four each time you go through. These were the things we were taught and so these were the foundation of
+            the pixel array based image code my classmate Valarie and I wrote to manipulate our image for 60 seconds
+        </p>
+
+        <p> I had been reading a lot of the p5js book and understanding a lot of the basic ideas of the program. I
+            know some arduino c so the most difficult thing is wrapping my head back around classes, objects, and
+            arrays (lol).</p>
+
+        <p> Coming up with ideas for the image was easy, understanding whats realistic as a way to code that image
+            was very difficult. She wanted to do a transition from a picture to a framing, I wanted to talk about
+            memory and how our mental images of people and events fade over time. We talked about how to do it with
+            a picture of her cat and broke off after a couple hours of work on a zoom call some ideas on how to
+            prpoceed. I am going to post some of the work we created as we went and talk about what was going on.
+        </p>
+
+        <script src="P5/testSketch.js"></script>
+
+    </main>
+</body>
+
+</html>

@@ -73,8 +73,7 @@ The site follows a course-based content organization:
 - Academic content should include proper citations and references
 - Multimedia documentation preferred for projects and prototypes
 
-## Important Notes for AI Agents
-- This is an **academic portfolio**, not a commercial site - maintain appropriate tone
+## Important Notes for AI Agent
 - **Preserve existing content structure** - don't reorganize without explicit request
 - **Media files are locally hosted** - ensure proper relative path references
 - **Backend is configured but unused** - focus on static site improvements unless backend integration specifically requested
