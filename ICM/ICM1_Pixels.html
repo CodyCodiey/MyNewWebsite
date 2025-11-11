@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Pixels!</title>
     <link rel="stylesheet" href="/styles.css">
-    <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script>
+    <script src="/ICM/libraries/p5.min.js"></script>
+    <script src="/ICM/libraries/p5.sound.min.js"></script>
 </head>
 
 <body lang="en-US">
@@ -40,7 +40,7 @@
             and so on. Once you are done manipulating the pixels you have to call updatePixels() to update the
             canvas with the new pixel values.(vs code autocompleted that too lol)</p>
 
-        <p> Okay, anyways. There are some ways to get through it using nested fore loops and a couple equations to
+        <p> Okay, anyways. There are some ways to get through it using nested for loops and a couple equations to
             isolate the index from x and y values. Or what else is really cool because then you can just count by
             four each time you go through. These were the things we were taught and so these were the foundation of
             the pixel array based image code my classmate Valarie and I wrote to manipulate our image for 60 seconds
@@ -53,13 +53,261 @@
         <p> Coming up with ideas for the image was easy, understanding what's realistic as a way to code that image
             was very difficult. She wanted to do a transition from a picture to a framing, I wanted to talk about
             memory and how our mental images of people and events fade over time. We talked about how to do it with
-            a picture of her cat and broke off after a couple hours of work on a zoom call some ideas on how to
-            proceed. I am going to post some of the work we created as we went and talk about what was going on.
+            a picture of her cat and broke off after a couple hours of work on a zoom call some ideas on how to proceed.
+            I focused on figuring out the fading from the outside in and she worked on getting the image transition.
         </p>
 
-        <script src="P5/testSketch.js"></script>
+        <p>
+            The first way I was trying to approach the fade was to iterate around the loop as a spiral and in random
+            instances create an object which would essentially be a circle which expanded out. My initial idea was to
+            use nested loops to interate through the image and draw lines on each side using a counter to shrink the x
+            and y of the for loop each time through. I was only able to replace the ouside of the canvas with a red
+            line.
+        </p>
+
+        <p>
+            I spent talked to Ryan and Willaim about it and realized the approaches described for this type of walk is
+            very difficult. Ryan changed how I viewed the problem by drawing the image with 0,0 at its center instead of
+            the upper left corner. I could sort through the array one way using index and calculate the distance as I
+            checked each pixel. William helped me with dist() and proposed to use lerping to change the color.
+        </p>
+
+        <div id="sketch2-container"></div>
+        <script src="P5/testSketch2.js"></script>
+
+        <div id="sketch2-code-container">
+            <div id="code-section-1">
+                <h3>Valaries Version</h3>
+                <pre> <code>
+                        let photo;
+                        let vangogh;
+                        let time = 60 * 60;
+                        let pixelOrder = [];
+                        let index = 0;
+
+                        function preload() {
+                            photo = loadImage('photo.jpg');   
+                            vangogh = loadImage('vangogh.jpg'); 
+                        }
+
+                        function setup() {
+                            createCanvas(photo.width, photo.height);
+                            photo.loadPixels();
+                            vangogh.loadPixels();
+                            pixelDensity(1);
+                            for (let i = 0; i < photo.pixels.length / 4; i++) {
+                                pixelOrder.push(i);
+                            }
+                            shuffle(pixelOrder, true);
+                        }
+
+                        function draw() {
+                            loadPixels();
+                            let step = int(pixelOrder.length / time);
+                            for (let i = 0; i < step && index < pixelOrder.length; i++) {
+                                let pix = pixelOrder[index];
+                                let p = pix * 4;
+                                pixels[p] = vangogh.pixels[p];
+                                pixels[p + 1] = vangogh.pixels[p + 1];
+                                pixels[p + 2] = vangogh.pixels[p + 2];
+                                pixels[p + 3] = 255;
+                                index++;
+                            }
+                            for (let i = index; i < pixelOrder.length; i++) {
+                                let pix = pixelOrder[i];
+                                let p = pix * 4;
+                                pixels[p] = photo.pixels[p];
+                                pixels[p + 1] = photo.pixels[p + 1];
+                                pixels[p + 2] = photo.pixels[p + 2];
+                                pixels[p + 3] = 255;
+                            }
+                            updatePixels();
+                            }
+                    </code></pre>
+            </div>
+        </div>
+
+        <button id="toggle-code-btn-1">
+            ▼ Show Code
+        </button>
+
+        <p>
+            This was the sketch that Valarie came back to me with. She had replaced the image of her cat with the
+            photograph and the painting. I was really struck by how haunting the photo of vangough is. I took some time
+            to understand her code and realized that all I had to do was tweak the order of the index which was
+            replacing pixels, which was created in the setup.
+        </p>
+
+        <p>
+            I saw that she was creating an array with all the pixel indexes and then going through that array and
+            replacing the pixels one by one first drawing the new pixels and then drawing in the old pixels after that.
+            I realized that I could just sort the array she created by each pixels distance from the center. I wrote up
+            a version of the code tried to implament it and then asked chat to help me debug it. It threw me back a
+            fixed algoritham which I spent time to understand. Each index of the array was ammended with a distance
+            value and the array was then sorted by those values. From here I tweaked the values until it was smooth and
+            borderless. I really wanted a slow zoom on the eye.
+        </p>
+
+        <div id="fadeAndZoom-container"></div>
+        <script src="P5/fadeAndZoom.js"></script>
+
+        <div id="fadeAndZoom-code-container">
+            <div id="code-section-2">
+                <h3>Codys Version</h3>
+                <pre><code>
+                    let photo;
+                    let vangogh;
+                    let time = 60 * 60;
+                    let pixelOrder = [];
+                    let index = 0;
+
+                    function preload() {
+                    photo = loadImage('photo.jpg');   
+                    vangogh = loadImage('vangogh.jpg'); 
+                    }
+
+                    function setup() {
+                    createCanvas(photo.width, photo.height);
+                    photo.loadPixels();
+                    vangogh.loadPixels();
+                    pixelDensity(1);
+                    
+                    let xCent = width / 2;
+                    let yCent = height / 2;
+                    
+                    let pixelsWithDist = [];
+                    for (let i = 0; i < photo.pixels.length / 4; i++) {
+                        let y = floor(i / width);
+                        let x = i % width;
+                        let d = dist(xCent, yCent, x, y);
+                        pixelsWithDist.push({index: i, distance: d});
+                    }
+                    
+                    let smoothAmount = 100;
+                    pixelsWithDist.forEach(p => {
+                        p.distance += random(-smoothAmount, smoothAmount);
+                    });
+                    
+                    pixelsWithDist.sort((a, b) => b.distance - a.distance);
+                    
+                    for (let p of pixelsWithDist) {
+                        pixelOrder.push(p.index);
+                    }
+                    }
+
+                    function draw() {
+                    loadPixels();
+                    
+                    let step = int(pixelOrder.length / time);
+                    for (let i = 0; i < step && index < pixelOrder.length; i++) {
+                        let pix = pixelOrder[index];
+                        let p = pix * 4;
+                        pixels[p] = vangogh.pixels[p];
+                        pixels[p + 1] = vangogh.pixels[p + 1];
+                        pixels[p + 2] = vangogh.pixels[p + 2];
+                        pixels[p + 3] = 255;
+                        index++;
+                    }
+                    
+                    for (let i = index; i < pixelOrder.length; i++) {
+                        let pix = pixelOrder[i];
+                        let p = pix * 4;
+                        pixels[p] = photo.pixels[p];
+                        pixels[p + 1] = photo.pixels[p + 1];
+                        pixels[p + 2] = photo.pixels[p + 2];
+                        pixels[p + 3] = 255;
+                    }
+                    
+                    updatePixels();
+                    }
+            </code></pre>
+            </div>
+        </div>
+
+        <button id="toggle-code-btn-2">
+            ▼ Show Code
+        </button>
+        <p>
+            This was close to our final version that we presented! I reread the assignment and realized the image had to
+            scale to the full screen size of the web page so Valerie added another line
+            "createCanvas(windowWidth&height)" which scaled the picture to the full size of the window. Or so we
+            thought. When it was time to present we were left with a hidious white mass to the side of the image which
+            despite our teachers best last minute efforts remained unfixable for the viewing.
+        </p>
+
+        <p>
+            For our words to describe the transformation of the image we chose:
+        <ul>
+            <li>Reality</li>
+            <li>Self-expression</li>
+            <li>Transformation</li>
+            <li>Memory</li>
+        </ul>
+        </p>
+
+        <img src="Feedback.jpeg" alt="Final Image from Pixels Assignment">
+
+        <p> It was great to present the project infront of others and see how they took it. I think memory was a
+            difficult theme to convey. The pixeley nature of the transition was a little off topic as well. I think
+            having the pixels fade in with lerping would have been more effective at communicating the more analog
+            nature of the mind.
+        </p>
+
+        <p> As I worked with the code, I commented out " //createCanvas(photo.width, photo.height);" and played with the
+            window size to produce different results. I got really lucky a couple times and produced really striking
+            repetition based images where vangoughs eye was centered along the middle of the picture and repeated over
+            and over. If I were to extend this project, I would try to produce this result more reliably and dial it in.
+            I think that this large horizontally focused picure is more cinematic and abstract. </p>
+
+        <img src="experiment1.png" alt="Experiment 1">
+
+        <img src="experiment2.png" alt="Experiment 2">
+
+
+
 
     </main>
 </body>
+
+<script>
+    window.addEventListener('load', () => {
+        // Give sketches time to initialize
+        setTimeout(() => {
+            const canvases = document.querySelectorAll('canvas');
+            canvases.forEach(canvas => {
+                canvas.style.maxWidth = '600px';
+                canvas.style.width = '100%';
+                canvas.style.height = 'auto';
+                canvas.style.display = 'block';
+                canvas.style.margin = '1rem 0';
+                canvas.style.imageRendering = 'pixelated';
+            });
+
+            // Set up Intersection Observer to start animations when in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.target.id === 'sketch2-container') {
+                        if (entry.isIntersecting) {
+                            s2.startAnimation();
+                        } else {
+                            s2.stopAnimation();
+                        }
+                    } else if (entry.target.id === 'fadeAndZoom-container') {
+                        if (entry.isIntersecting) {
+                            sFadeAndZoom.startAnimation();
+                        } else {
+                            sFadeAndZoom.stopAnimation();
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(document.getElementById('sketch2-container'));
+            observer.observe(document.getElementById('fadeAndZoom-container'));
+        }, 500);
+    });
+</script>
+
+<script src="/ICM/scripts/toggleCode.js"></script>
 
 </html>
