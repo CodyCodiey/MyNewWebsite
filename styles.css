@@ -103,6 +103,23 @@ img {
     text-decoration: none;
 }
 
+/* Scale down p5.js canvases */
+canvas.p5Canvas {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 1rem auto !important;
+    image-rendering: pixelated !important;
+}
+
+#sketch2-container,
+#fadeAndZoom-container {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    overflow: hidden;
+}
+
 @media (max-width: 800px) {
     main {
         max-width: 100%;
