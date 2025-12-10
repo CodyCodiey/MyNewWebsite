@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../P5J/CheckboxMirror/libraries"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mynewwebsite"
+	}
+}

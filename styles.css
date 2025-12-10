@@ -83,7 +83,8 @@ img {
 }
 
 #toggle-code-btn-1,
-#toggle-code-btn-2 {
+#toggle-code-btn-2,
+#toggle-code-btn-3 {
     position: sticky;
     top: 1rem;
     background: #222;
@@ -98,7 +99,8 @@ img {
 }
 
 #toggle-code-btn-1:hover,
-#toggle-code-btn-2:hover {
+#toggle-code-btn-2:hover,
+#toggle-code-btn-3:hover {
     background: #555;
     text-decoration: none;
 }

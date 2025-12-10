@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pixels!</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/ICM/libraries/p5.min.js"></script>
+    <script src="/ICM/libraries/p5.sound.min.js"></script>
+</head>
+
+<body lang="en-US">
+    <main>
+
+        <h1>Data! from a GPS!</h1>
+
+        <p> </p>
+
+
+        <div id="simpleRedDetect-container"></div>
+        <script src="P5/SimpleRedDetect.js"></script>
+
+        <div id="sketch2-code-container">
+            <div id="code-section-1">
+                <h3>SimpleRedDetect.js</h3>
+                <pre> <code>
+                        let currentTime = 29304480;
+                        let gps = [[3, 16, 19], [4, null, 20], [5, 18, 21]];
+                        function setup() {
+                            createCanvas(200, 200);
+                            noStroke();
+
+                        }
+
+                        function draw() {
+                            background(255);
+                            for (let i = 0; i < gps.length; i++) {
+                                for (let j = 0; j < gps[i].length; j++) {
+                                    if (gps[i][j] != null && gps[i][j] > 20) {
+                                        fill(255, 0, 0);
+                                        rect(i * width / gps.length, j * height / gps[i].length, 100);
+                                    }
+                                    else if (gps[i][j] != null) {
+                                        fill(0, 0, 0);
+                                        rect(i * width / gps.length, j * height / gps[i].length, width / gps.length);
+                                    }
+                                }
+                            }
+                        }
+                    </code></pre>
+            </div>
+        </div>
+
+        <button id="toggle-code-btn-1">
+            ▼ Show Code
+        </button>
+
+        <div id="fullSizeRedDetect-container"></div>
+        <script src="P5/fullSizeRedDetect.js"></script>
+
+        <div id="sketch3-code-container">
+            <div id="code-section-2">
+                <h3>fullSizeRedDetect.js</h3>
+                <pre> <code>
+                    let gps = Array(200).fill(null).map(() => Array(200).fill(null));
+
+                    function setup() {
+                        createCanvas(200, 200);
+                        noStroke();
+
+                    }
+
+                    function draw() {
+                        
+                        // Record mouse position and time to array
+                        if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+                            let i = mouseX;
+                            let j = mouseY;
+                            gps[i][j] = Date.now();
+                        }
+                        
+                        for (let i = 0; i < gps.length; i++) {
+                            for (let j = 0; j < gps[i].length; j++) {
+                                if (gps[i][j] != null && gps[i][j] > Date.now() - 3000) {
+                                    fill(255, 0, 0);
+                                    rect(i, j, 1);
+                                }
+                                else if (gps[i][j] != null) {
+                                    fill(0, 0, 0);
+                                    rect(i, j, 1);
+                                }
+                            }
+                        }
+                    }
+                    </code></pre>
+            </div>
+        </div>
+
+        <button id="toggle-code-btn-2">
+            ▼ Show Code
+        </button>
+
+        <img src="simpleImageArray.jpg" alt="Simple Image Array output on e-ink display">
+
+        <div id="sketch4-code-container">
+            <div id="code-section-3">
+                <h3>drawSingleImageArray.js</h3>
+                <pre> <code>
+                    void loop() {
+                    Serial.println("DrawImageDemo");
+                    display.clearBuffer();
+                    
+                    for(int i = 0; i < 200; i++) {
+                        for(int j = 0; j < 200; j++) {
+                        if(((i / scale) + (j / scale)) % 3 == 0) {
+                            display.drawPixel(i, j, EPD_BLACK);
+                        }
+                        else if(((i / scale) + (j / scale)) % 3 == 1) {
+                            display.drawPixel(i, j, EPD_RED);
+                        }
+                        else {
+                            display.drawPixel(i, j, EPD_WHITE);
+                        }
+                        }
+                    }
+                    
+                    display.display();
+                    delay(180000);
+                    }
+                    </code></pre>
+            </div>
+        </div>
+
+        <button id="toggle-code-btn-3">
+            ▼ Show Code
+        </button>
+
+        <img src="GPSDisplay.jpeg" alt="GPS Display output">
+    </main>
+</body>
+
+<script>
+    window.addEventListener('load', () => {
+        // Give sketches time to initialize
+        setTimeout(() => {
+            const canvases = document.querySelectorAll('canvas');
+            canvases.forEach(canvas => {
+                canvas.style.maxWidth = '600px';
+                canvas.style.width = '100%';
+                canvas.style.height = 'auto';
+                canvas.style.display = 'block';
+                canvas.style.margin = '1rem 0';
+                canvas.style.imageRendering = 'pixelated';
+            });
+        }, 500);
+    });
+</script>
+
+<script src="/ICM/scripts/toggleCode.js"></script>
+
+</html>
